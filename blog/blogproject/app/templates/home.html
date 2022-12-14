@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+{%include 'base.html'%}
+{%load static%}
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>home</title>
+ <style>
+        .info{color:orange}
+        .success{color:green}
+    </style>
+</head>
+
+<body>
+<center>
+
+<div class="container  mt-4 mb-3" >
+<h4 class="text-center alert alert-info" > blog Information</h4>
+    {% if stu %}
+    <div class="row">
+        {% for st in stu %}
+        <div class="col-lg-4 my-5" >
+            <div class="card shadow" style="width: 20rem; height: 33rem; overflow:auto;">
+
+                <div class="card-body">
+                  <h5 class="card-title">{{st.title}} <br><small>by {{st.blog}}</small></h5>
+                  <p class="card-text">{{st.content| truncatechars:210}}</p>
+
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+     <h4 class="text-center alert alert-warning">"No Data</h4>
+    {% endif %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</div>
+</form>
+</center>
+</body>
+</html>
+{% endblock %}

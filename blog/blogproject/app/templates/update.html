@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <style>
+        .info{color:orange}
+        .success{color:green}
+    </style>
+</head>
+<body>
+
+<div class="col-sm-8 offset-2">
+    <h4 class="alert alert-info">Update blog</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form3.as_p}}
+        <input type="submit" class="btn btn-success" value="Update">
+        <a href="{% url 'details'%}" class="btn btn-info">Back</a>
+    </form>
+     {% if messages %}
+  {% for message in messages %}<br>
+   <span {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</span>
+  {% endfor %}
+ {% endif %}
+</div>
+{% endblock content %}
+</body>
+</html>
